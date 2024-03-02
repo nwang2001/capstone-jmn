@@ -1,0 +1,42 @@
+@import "react-slideshow-image/dist/styles.css";
+
+* {
+    box-sizing: border-box;
+}
+
+.slider-section {
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.09)
+}
+
+.slider-section h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #82B300;
+    margin: 20px auto 0;
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro button {
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    background: #FFBB00;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.09);
+}
+
+.intro button:hover {
+    background: #82B300;
+}

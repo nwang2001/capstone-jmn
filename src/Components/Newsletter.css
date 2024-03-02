@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body { 
+    height: 100vh; 
+    width: 100vw; }
+
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 65%;
+    height: 40vh;
+    margin: 30px auto;
+    padding: 0 140px;
+    gap: 30px;
+    background: linear-gradient(180deg, #FB7300 0%, #FFBB00 60%);
+    border-radius: 20px;
+}
+
+.newsletter h1 {
+    color: #454545;
+    font-size: 55px;
+    font-weight: 600;
+}
+
+.newsletter p {
+    color: #454545;
+    font-size: 20px;
+}
+
+.newsletter div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 80px;
+    border: 1px solid antiquewhite;
+}
+
+.newsletter input {
+    width: 500px;
+    margin-left: 30px;
+    border: none;
+    outline: none;
+    color: #454545;
+    background: #fff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 16px;
+}
+
+.newsletter div button {
+    width: 210px;
+    height: 70px;
+    border-radius: 80px;
+    color: #fff;
+    background-color: #82B300;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .newsletter {
+    width: 90%;
+    padding: 0 15px; 
+  }
+
+  .newsletter h1 {
+    font-size: 24px; 
+  }
+
+  .newsletter input {
+    width: 200px; 
+  }
+
+  .newsletter div button {
+    width: 120px; 
+    height: 40px; 
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .newsletter {
+      width: 85%; 
+      padding: 0 30px; 
+    }
+  
+    .newsletter h1 {
+      font-size: 30px; 
+    }
+  
+    .newsletter input {
+      width: 250px; 
+    }
+  
+    .newsletter div button {
+      width: 140px; 
+      height: 45px; 
+    }
+  }
+  
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .newsletter {
+      width: 75%; 
+      padding: 0 60px; 
+    }
+  
+    .newsletter h1 {
+      font-size: 40px; 
+    }
+  
+    .newsletter input {
+      width: 300px;
+    }
+  
+    .newsletter div button {
+      width: 160px; 
+      height: 50px; 
+    }
+  }
+  
+@media screen and (min-width: 1025px) and (max-width: 1225px) {
+    .newsletter {
+      width: 60%; 
+      padding: 0 100px; 
+    }
+  
+    .newsletter h1 {
+      font-size: 45px; 
+    }
+    
+    .newsletter div {
+        width: 500px;
+    }
+
+    .newsletter form {
+        width: 400px;
+    }
+
+    .newsletter input {
+      width: 300px; 
+    }
+  
+    .newsletter div button {
+      width: 180px; 
+      height: 60px; 
+    }
+  }
+  
