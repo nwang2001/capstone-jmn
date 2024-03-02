@@ -2,9 +2,9 @@ import React from 'react';
 import 'react-slideshow-image/dist/styles.css';
 import { Fade } from 'react-slideshow-image';
 import './Slider.css';
-import foodbank from '../Components/Assets/foodbank3.jpg';
-import volunteer from '../Components/Assets/Volunteer3.jpg';
-import events from '../Components/Assets/events3.jpg';
+import foodbank from '../Components/Assets/foodbank2.png';
+import volunteer from '../Components/Assets/Volunteer2.png';
+import events from '../Components/Assets/events2.png';
 
 const slideImages = [ foodbank, volunteer, events ];
 
@@ -26,7 +26,7 @@ export default function Slider() {
         <button>Login</button>
         <button>Sign Up</button>
         </div>
-        <Fade autoplay={true} duration={3000} indicators={false} infinite={true} arrows={false}>
+        <Fade autoplay={true} duration={2000} indicators={false} infinite={true} arrows={false}>
         {slideImages.map((each, index) => (
           <img key={index} style={{...divStyle}} src={each} alt='slider'/>
         ))}
