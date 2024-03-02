@@ -20,11 +20,11 @@ class Nav extends Component {
         <h1>Happy Pantry</h1>
         </div>
 
-          <ul id="nav-menu" className={ this.state.clicked ? "#nav-menu" : "#nav-menu active" }>
+          <ul className={ this.state.clicked ? "nav-menu" : "nav-menu active" }>
               <li><a className="active" href="/">Home</a></li>
-              <li><a href="/Event">Events</a></li>
-              <li><a href="/Map">Find A Food Bank</a></li>   
-              <li><a href="/Account">Login/Sign Up</a></li>     
+              <li><a className="active" href="/Event">Events</a></li>
+              <li><a className="active" href="/Map">Find A Food Bank</a></li>   
+              <li><a className="active" href="/Account">Login/Sign Up</a></li>     
           </ul>
       <div className="mobile-navbar" onClick={this.handleClick}>
       <i id='bar' className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>

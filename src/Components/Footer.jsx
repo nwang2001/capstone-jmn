@@ -14,15 +14,12 @@ export default function Footer() {
             <Link to="/"><img src={Logo} alt="Happy Pantry logo" /></Link>
         </div>
         <div className="footer-socials">
+          <h2>Follow Our Journey</h2>
         <div className="footer-icons">
             <img src={instagram_icon} alt="instagram" />
-        </div>
-        <div className="footer-icons">
             <img src={facebook_icon} alt="facebook" />
-        </div>
-        <div className="footer-icons">
             <img src={twitter_icon} alt="twitter" />
-        </div>
+      </div>
       </div>
         <div className="footer-links">
         <h2>Links</h2>
