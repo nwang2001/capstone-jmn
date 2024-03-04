@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.zipcode-input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 15px;
+    width: 40%;
+}
+
+.mapbuttons {
+    display: flex;
+    gap: 10px;
+}
+
+.find-button,
+.toggle-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.map {
+    height: 380px;
+    width: 60%;
+    margin-right: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 45px;
+}
+
+.addresses {
+    width: 35%;
+    max-height: 380px;
+    overflow-y: auto;
+}
+
+.address-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.address-item {
+    margin-bottom: 10px;
+}
