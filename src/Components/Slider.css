@@ -6,9 +6,7 @@
 
 .slider-section {
     position: relative;
-    margin: 135px 0 20px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.09);
-    /* background: #fcfcea; */
 }
 
 .slider-section h1 {
