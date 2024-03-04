@@ -5,7 +5,8 @@
 }
 
 .slider-section {
-    margin-bottom: 20px;
+    position: relative;
+    margin: 135px 0 20px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.09);
     /* background: #fcfcea; */
 }
@@ -18,7 +19,14 @@
     margin: 0px auto 0;
     padding: 18px;
     border-top: 2px solid #82B300;
+}
 
+.slider-section p {
+    width: 60%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    font-weight: 400;
 }
 
 .intro {
