@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './Nav.css';
 import Logo from './Assets/logohappypantry.png';
 
-
 class Nav extends Component {
 
   state = { clicked: false };
@@ -21,10 +20,10 @@ class Nav extends Component {
         </div>
 
           <ul className={ this.state.clicked ? "nav-menu" : "nav-menu active" }>
-              <li><a className="active" href="/">Home</a></li>
-              <li><a className="active" href="/Event">Events</a></li>
-              <li><a className="active" href="/Map">Find A Food Bank</a></li>   
-              <li><a className="active" href="/Account">Login/Sign Up</a></li>     
+              <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/">Home</Link></li>
+              <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Event">Events</Link></li>
+              <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Map">Find A Food Bank</Link></li>   
+              <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Login">Account</Link></li>     
           </ul>
       <div className="mobile-navbar" onClick={this.handleClick}>
       <i id='bar' className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
