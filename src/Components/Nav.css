@@ -1,12 +1,15 @@
+.nav {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+}
+
 .navbar nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #fcfcea;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.09);
-    position: fixed;
-    top: 0;
-    width: 100%;
     z-index: 101;
 }
 
