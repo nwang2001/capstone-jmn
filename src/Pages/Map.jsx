@@ -107,7 +107,7 @@ const MapWidget = () => {
           <h1>Locations Near You:</h1>
           <ul className="address-list">
             {addresses.map((place, index) => (
-              <li key={index} className="address-item"><strong>{place.name}</strong>: <br></br> {place.address}</li>
+              <li key={index} className="address-item">- <strong>{place.name}</strong>: <br></br> {place.address}</li>
             ))}
           </ul>
         </div>

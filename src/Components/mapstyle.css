@@ -3,8 +3,25 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 135px 20px 20px;
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #82B300;
+    margin: 0px auto 0;
+    padding: 18px;
+    border-bottom: 2px solid #82B300;
+}
+
+.container p {
+    width: 60%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    font-weight: 400;
 }
 
 .zipcode-input {
@@ -24,8 +41,16 @@
 .find-button,
 .toggle-button {
     padding: 10px 20px;
-    font-size: 16px;
+    margin: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    background: #FFBB00;
+    color: #fff;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.09);
 }
 
 .map-container {
@@ -35,7 +60,7 @@
 }
 
 .map {
-    height: 380px;
+    height: 450px;
     width: 60%;
     margin-right: 20px;
     border-radius: 5px;
@@ -45,7 +70,7 @@
 
 .addresses {
     width: 35%;
-    max-height: 380px;
+    max-height: 450px;
     overflow-y: auto;
 }
 
