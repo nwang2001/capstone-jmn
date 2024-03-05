@@ -3,15 +3,12 @@
     align-items: center;
     justify-content: space-between;
     background: #fcfcea;
+    margin-bottom:2px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.09);
-    z-index: 101;
-    width: 100%;
-    position: fixed;
-    top: 0px;
 }
 
 .nav-logo img {
-    width: 130px;
+    width: 150px;
 }
 .nav-logo {
     display: flex;
