@@ -20,7 +20,14 @@ class Nav extends Component {
         </div>
 
           <ul className={ this.state.clicked ? "nav-menu" : "nav-menu active" }>
-              <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/">Home</Link></li>
+          <div class="dropdown">
+      <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/">Home</Link></li>
+    <div class="dropdown-content">
+      <a href="#section-team">Our Team</a>
+      <a href="#section-about">About Us</a>
+      <a href="#section-recipe">Personal Recipes</a>
+    </div>
+  </div>
               <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Event">Events</Link></li>
               <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Map">Find A Food Bank</Link></li>   
               <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Login">Account</Link></li>     

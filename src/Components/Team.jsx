@@ -7,7 +7,7 @@ import './Team.css';
 
 export default function Team() {
   return (
-    <div>
+    <div id='section-team'>
       <h1 className="team-title">Our Team</h1>
       <div className="team-container">
       <div className="team-bios">
