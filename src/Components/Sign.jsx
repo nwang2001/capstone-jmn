@@ -1,5 +1,6 @@
-import React from 'react'
-import './Sign.css'
+import React from 'react';
+import './Sign.css';
+import SignImg from './Assets/signup.jpeg'
 
 
 export default function Sign() {
@@ -45,6 +46,7 @@ export default function Sign() {
 
     return (
         <div className="signup-page">
+            <img src={SignImg} alt="sign up" />
             <div className="form">
                 <form className="register-form" onSubmit={handleSubmit}>
                     <input type="text" placeholder="first name" id='fName' />
@@ -57,9 +59,6 @@ export default function Sign() {
                         Already registered? <a href="/Login">Sign In</a>
                     </p>
                 </form>
-            </div>
-            <div className='img-holder'>
-                <img className='image' src='../../images/signup.jpeg' />
             </div>
         </div>
     )

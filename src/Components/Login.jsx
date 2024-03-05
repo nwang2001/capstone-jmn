@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import LoginImg from './Assets/login.jpeg';
 
 
 export default function Login() {
@@ -25,6 +26,7 @@ export default function Login() {
 
     return (
         <div className="login-page">
+            <img src={LoginImg} alt="login" />
             <div className="form">
                 <form className="login-form" onSubmit={handleSubmit}>
                     <input type="email" placeholder="email" onChange={e => setEmail(e.target.value)} />
