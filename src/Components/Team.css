@@ -41,3 +41,78 @@ display: inline-block;
     font-weight: 500;
     line-height: 20px;
 }
+
+@media screen and (min-width: 1025px) and (max-width: 1225px) {
+    .team-bios {
+        width: 550px;
+        height: 280px;
+    }
+    .team-photo {
+        width: 35%;
+    }
+    .team-title {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .team-bios {
+        width: 500px;
+        height: 250px;
+    }
+    .team-photo {
+        width: 40%;
+    }
+    .team-title {
+        font-size: 2.5rem;
+        margin: 20px 0px 0px 80px;
+    }
+    .team {
+        flex-direction: column;
+        align-items: center;
+    }
+    .team-paragraph {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .team-bios {
+        width: 400px;
+        height: 220px;
+    }
+    .team-photo {
+        width: 45%;
+    }
+    .team-title {
+        font-size: 2rem;
+        margin: 15px 0px 0px;
+    }
+    .team {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .team-container {
+        max-width: 100%;
+    }
+    .team-bios {
+        width: 90%;
+        height: auto;
+    }
+    .team-photo {
+        width: 50%;
+    }
+    .team-title {
+        font-size: 1.5rem;
+        margin: 10px 0;
+    }
+    .team {
+        flex-direction: column;
+        align-items: center;
+    }
+    .team-paragraph {
+        font-size: 0.9rem;
+    }
+}
