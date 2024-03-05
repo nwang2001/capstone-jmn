@@ -4,7 +4,11 @@
     margin: 0px auto 0px;
     display: flex;
     align-items: center;
-    background-image: url('../../public/images/signup.jpeg');
+    /* background-image: url('../../public/images/signup.jpeg'); */
+}
+
+.signup-page .img-holder {
+    object-fit: contain;
 }
 
 .signup-page .form {
