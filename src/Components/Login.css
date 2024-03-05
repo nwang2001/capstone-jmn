@@ -1,15 +1,22 @@
 .login-page {
     max-width: 100vw;
     padding: 1em;
-    height: 100vh;
-    margin: 135px auto 0px;
+    margin: 155px auto 0px;
+    display: flex;
+    align-items: center;
+}
+
+.login-page img {
+    width: 60%;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.09);
+
 }
 
 .login-page .form {
     max-width: 70%;
     background: #FFFFFF;
     margin: 0 auto;
-    padding-right: 5em;
     text-align: center;
     display: flex;
     align-items: center;
