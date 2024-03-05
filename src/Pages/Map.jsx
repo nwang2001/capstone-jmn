@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
+import "../Components/mapstyle.css";
 
 const MapWidget = () => {
   const [map, setMap] = useState(null);
   const [markers, setMarkers] = useState([]);
-  // Update state to hold objects with name and address
   const [addresses, setAddresses] = useState([]);
 
   useEffect(() => {
     const loadGoogleMapsScript = (callback) => {
       if (typeof google === "undefined") {
         const script = document.createElement("script");
-        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAWyhzbj3x1zDjbr_8XRquJpgwEaNyhsA0&libraries=places`;
         document.head.append(script);
         script.onload = () => {
           callback();
@@ -90,25 +89,32 @@ const MapWidget = () => {
 
   return (
     <>
-      <input type="text" placeholder="Enter Zipcode" />
-      <button onClick={() => {
-        const input = document.querySelector('input[type="text"]');
-        findFoodBanks(input.value);
-      }}>Find Food Banks</button>
-      <button onClick={toggleMarkers}>Toggle Markers</button>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div id="map" style={{ height: "380px", width: "60%" }}></div>
-        <div style={{ width: "35%" }}>
-          <h2>Food Banks Near You:</h2>
-          <ul>
+      <div className="container">
+        <h1>Find A Food Banks Near You</h1>
+        <p>Enter your Zipcode or Address to find a Food Bank near you!</p>
+        <input className="zipcode-input" type="text" placeholder="Enter Zipcode or Address" />
+        <div className="mapbuttons">
+          <button className="find-button" onClick={() => {
+            const input = document.querySelector('.zipcode-input');
+            findFoodBanks(input.value);
+          }}>Find Food Banks</button>
+          <button className="toggle-button" onClick={toggleMarkers}>Toggle Markers</button>
+        </div>
+      </div>
+      <div className="map-container">
+        <div id="map" className="map"></div>
+        <div className="addresses">
+          <h1>Locations Near You:</h1>
+          <ul className="address-list">
             {addresses.map((place, index) => (
-              <li key={index}><strong>{place.name}</strong>: {place.address}</li>
+              <li key={index} className="address-item">- <strong>{place.name}</strong>: <br></br> {place.address}</li>
             ))}
           </ul>
         </div>
       </div>
     </>
   );
+
 };
 
 export default MapWidget;
