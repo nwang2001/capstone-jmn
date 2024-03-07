@@ -26,10 +26,6 @@ export default function Account() {
     return (
         <div className='account'>
             <h1>Welcome to your account! </h1>
-            <h3>Hi there! 
-                {/* {firstName} */}
-                !
-                </h3>
             <div >
                 <button className="sign-out-btn" onClick={handleSignOut}>Sign Out</button>
             </div>

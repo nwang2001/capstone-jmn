@@ -1,3 +1,26 @@
 .account {
-    margin-top: 180px;
+    margin-top: 160px;
+    max-width: 1500px;
+    margin: 180px auto;
+}
+
+.account .sign-out-btn {
+    font-family: inherit;
+    background-color: #FB7300;
+    border: none;
+    color: white;
+    padding: 20px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.account .sign-out-btn:hover {
+    background-color: #d46408;
+}
+
+.account .sign-out-btn {
+    margin-top: 3em;
 }
