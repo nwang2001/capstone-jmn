@@ -34,6 +34,10 @@
     font-size: 1.2rem;
 }
 
+.recipe-left a {
+    text-decoration: none;
+}
+
 .recipe-left button {
     display: block;
     padding: 10px 20px;

@@ -1,0 +1,13 @@
+.recipes {
+    margin: 180px auto;
+    width: 80%;
+}
+
+.recipes h3 {
+    display: block;
+    margin: 1rem 0rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #FB7300;
+    text-shadow: 3px 3px 3px #82B300;
+}

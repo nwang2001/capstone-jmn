@@ -1,7 +1,58 @@
 .admin {
     margin-top: 160px;
+    max-width: 800px;
+    margin: 180px auto;
 }
 
-.admin li {
+.admin h1 {
+    color: #003C40;
+    margin-bottom: 1.5em;
+}
+
+.admin table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+.admin thead {
+    background-color: #f2f2f2;
+}
+
+.admin th,
+.admin td {
+    padding: 50px 20px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    font-size: 22px;
+}
+
+.admin th {
+    background-color: #82B300;
+    color: white;
+}
+
+.admin tr:hover {
+    background-color: #fcfcea;
+}
+
+.admin .delete-btn, .admin .sign-out-btn {
+    font-family: inherit;
+    background-color: #FB7300;
+    border: none;
+    color: white;
+    padding: 20px 28px;
+    text-align: center;
     text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.admin .delete-btn:hover, .admin .sign-out-btn:hover {
+    background-color: #d46408;
+}
+
+.admin .sign-out-btn {
+    margin-top: 3em;
 }

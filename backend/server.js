@@ -1,10 +1,14 @@
 const express = require('express');
 const mysql2 = require('mysql2');
 const cors = require('cors');
+const dotenv = require('dotenv');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+dotenv.config();
+
+const API_KEY = process.env.API_KEY;
 
 const db = mysql2.createConnection({
     host: "sql5.freesqldatabase.com",
@@ -33,7 +37,7 @@ app.post('/register', (req, res) => {
     })
 })
 
-app.post('/login', (req, res) => {
+app.post('/Login', (req, res) => {
     const sql = "SELECT * FROM users WHERE email = ? AND password = ?";
 
     db.query(sql, [req.body.email, req.body.password], (err, data) => {
@@ -50,6 +54,56 @@ app.post('/login', (req, res) => {
     })
 });
 
+app.get('/vegetarian', (req, res) => {
+    const url = 'https://api.spoonacular.com/recipes/random?apiKey=' + `${API_KEY}` + '&number=9&tags=vegetarian';
+    const options = {
+        method: "GET",
+            headers: {  
+                // Authorization: process.env.APIKEY,  
+                "Content-Type": 'application/json'
+                 },
+    }
+
+    return fetch (url, options)
+        .then(res => res.json())
+        .then((recipes) => {
+            const data = recipes.recipes.map(item => ({
+                title: item.title,
+                image: item.image,
+                summary: item.summary,
+                instructions: item.instructions
+            }))
+            // res.send(recipes.recipes[0].title)
+            res.send(data);
+        })
+
+})
+
+app.get('/popular', (req, res) => {
+    const url = 'https://api.spoonacular.com/recipes/random?apiKey=' + `${API_KEY}` + '&number=9';
+    const options = {
+        method: "GET",
+            headers: {  
+                // Authorization: process.env.APIKEY, 
+                "Content-Type": 'application/json'
+                 },
+    }
+
+    return fetch (url, options)
+        .then(res => res.json())
+        .then((recipes) => {
+            const data = recipes.recipes.map(item => ({
+                title: item.title,
+                image: item.image,
+                summary: item.summary,
+                instructions: item.instructions
+            }))
+            // res.send(recipes.recipes[0].title)
+            res.send(data);
+        })
+
+})
+
 app.get('/users', (req, res) => {
     const sql = "SELECT * FROM users";
     db.query(sql, (err, data) => {
@@ -59,6 +113,33 @@ app.get('/users', (req, res) => {
         return res.json(data);
     });
 });
+
+app.get('/users/firstname', (req, res) => {
+    const userId = req.user.userId;
+    db.query('SELECT firstName FROM users WHERE userId = ?', [userId], (error, results) => {
+        if (error) {
+            console.error('Error querying database:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+        if (results.length === 0) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        const firstName = results[0].firstName;
+        res.json({ firstName });
+    });
+});
+
+// app.get('/admin/check', (req, res) => {
+//     const userId = req.params.userID;
+//     db.query('SELECT admin FROM users WHERE userID = ?', [userId], (error, results) => {
+//         if (error) {
+//             console.error('Error querying database:', error);
+//             return res.status(500).json({ error: 'Internal server error' });
+//         }
+//         const isAdmin = results.length > 0 && results[0].admin === 1;
+//         res.json({ isAdmin });
+//     });
+// });
 
 app.delete('/users/:userID', (req, res) => {
     const userID = req.params.userID;

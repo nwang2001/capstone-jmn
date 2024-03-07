@@ -65,3 +65,14 @@
     color: #6c9009;
     text-decoration: none;
 }
+
+
+@media screen and (max-width: 750px) {
+    .signup-page {
+        flex-wrap: wrap;
+    }
+
+    .signup-page img {
+        margin: 20px auto;
+    }
+}
