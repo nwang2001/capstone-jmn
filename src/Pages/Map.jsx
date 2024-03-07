@@ -62,8 +62,15 @@ const MapWidget = () => {
               });
 
               const infowindow = new window.google.maps.InfoWindow({
-                content: `<div><strong>${place.name}</strong><br>${place.vicinity}</div>`,
+                content: `
+                  <div>
+                    <strong>${place.name}</strong><br>
+                    ${place.vicinity}<br>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(place.name)}" target="_blank" rel="noopener noreferrer">Google Map Directions</a>
+                  </div>
+                `,
               });
+              
 
               marker.addListener('click', () => {
                 infowindow.open(map, marker);
@@ -104,13 +111,20 @@ const MapWidget = () => {
       <div className="map-container">
         <div id="map" className="map"></div>
         <div className="addresses">
-          <h1>Locations Near You:</h1>
-          <ul className="address-list">
-            {addresses.map((place, index) => (
-              <li key={index} className="address-item">- <strong>{place.name}</strong>: <br></br> {place.address}</li>
-            ))}
-          </ul>
-        </div>
+  <h1>Locations Near You:</h1>
+  <ul className="address-list">
+    {addresses.map((place, index) => (
+      <li key={index} className="address-item">
+        - <strong>{place.name}</strong>: <br></br> {place.address}
+        <br></br>
+        <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.name)}`} target="_blank" rel="noopener noreferrer">
+          Google Map Directions
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
       </div>
     </>
   );
