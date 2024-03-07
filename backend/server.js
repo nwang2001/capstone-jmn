@@ -33,7 +33,7 @@ app.post('/register', (req, res) => {
     })
 })
 
-app.post('/login', (req, res) => {
+app.post('/Login', (req, res) => {
     const sql = "SELECT * FROM users WHERE email = ? AND password = ?";
 
     db.query(sql, [req.body.email, req.body.password], (err, data) => {
@@ -59,6 +59,33 @@ app.get('/users', (req, res) => {
         return res.json(data);
     });
 });
+
+app.get('/users/firstname', (req, res) => {
+    const userId = req.user.userId;
+    db.query('SELECT firstName FROM users WHERE userId = ?', [userId], (error, results) => {
+        if (error) {
+            console.error('Error querying database:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+        if (results.length === 0) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        const firstName = results[0].firstName;
+        res.json({ firstName });
+    });
+});
+
+// app.get('/admin/check', (req, res) => {
+//     const userId = req.params.userID;
+//     db.query('SELECT admin FROM users WHERE userID = ?', [userId], (error, results) => {
+//         if (error) {
+//             console.error('Error querying database:', error);
+//             return res.status(500).json({ error: 'Internal server error' });
+//         }
+//         const isAdmin = results.length > 0 && results[0].admin === 1;
+//         res.json({ isAdmin });
+//     });
+// });
 
 app.delete('/users/:userID', (req, res) => {
     const userID = req.params.userID;
