@@ -35,7 +35,7 @@ export default function Sign() {
                         localStorage.clear()
                         localStorage.setItem('ID', data.user.userID)
                         localStorage.setItem('username', data.user.firstName)
-                        window.location.href = '/account'
+                        window.location.href = '/Account'
                     }
                 })
         } else {
