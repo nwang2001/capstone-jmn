@@ -10,7 +10,6 @@
     width: 60%;
     border-radius: 20px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.09);
-
 }
 
 .login-page .form {
@@ -64,4 +63,14 @@
 .login-page .form .message a {
     color: #6c9009;
     text-decoration: none;
+}
+
+@media screen and (max-width: 650px) {
+    .login-page {
+        flex-wrap: wrap;
+    }
+
+    .login-page img {
+        margin: 20px auto;
+    }
 }

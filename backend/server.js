@@ -1,10 +1,14 @@
 const express = require('express');
 const mysql2 = require('mysql2');
 const cors = require('cors');
+const dotenv = require('dotenv');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+dotenv.config();
+
+const API_KEY = process.env.API_KEY;
 
 const db = mysql2.createConnection({
     host: "sql5.freesqldatabase.com",
@@ -46,6 +50,58 @@ app.post('/login', (req, res) => {
         }
     })
 });
+
+
+app.get('/vegetarian', (req, res) => {
+    const url = 'https://api.spoonacular.com/recipes/random?apiKey=' + `${API_KEY}` + '&number=9&tags=vegetarian';
+    const options = {
+        method: "GET",
+            headers: {  
+                // Authorization: process.env.APIKEY,  
+                "Content-Type": 'application/json'
+                 },
+    }
+
+    return fetch (url, options)
+        .then(res => res.json())
+        .then((recipes) => {
+            const data = recipes.recipes.map(item => ({
+                title: item.title,
+                image: item.image,
+                summary: item.summary,
+                instructions: item.instructions
+            }))
+            // res.send(recipes.recipes[0].title)
+            res.send(data);
+        })
+
+})
+
+app.get('/popular', (req, res) => {
+    const url = 'https://api.spoonacular.com/recipes/random?apiKey=' + `${API_KEY}` + '&number=9';
+    const options = {
+        method: "GET",
+            headers: {  
+                // Authorization: process.env.APIKEY, 
+                "Content-Type": 'application/json'
+                 },
+    }
+
+    return fetch (url, options)
+        .then(res => res.json())
+        .then((recipes) => {
+            const data = recipes.recipes.map(item => ({
+                title: item.title,
+                image: item.image,
+                summary: item.summary,
+                instructions: item.instructions
+            }))
+            // res.send(recipes.recipes[0].title)
+            res.send(data);
+        })
+
+})
+
 
 app.listen(3500, () => {
     console.log("Listening on port 3500.");

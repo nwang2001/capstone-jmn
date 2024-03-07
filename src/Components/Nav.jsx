@@ -28,9 +28,10 @@ class Nav extends Component {
       <a href="#section-recipe">Personal Recipes</a>
     </div>
   </div>
-              <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Event">Events</Link></li>
-              <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Map">Find A Food Bank</Link></li>   
+              <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Map">Find A Food Bank</Link></li>  
+              <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Recipe">Recipes</Link></li>      
               <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Login">Account</Link></li>     
+
           </ul>
       <div className="mobile-navbar" onClick={this.handleClick}>
       <i id='bar' className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
