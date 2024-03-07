@@ -9,6 +9,7 @@ import Admin from './Pages/Admin'
 import Footer from './Components/Footer';
 import Sign from './Components/Sign';
 import Login from './Components/Login';
+import Recipe from './Pages/Recipe';
 
 function App() {
   return (
@@ -22,7 +23,9 @@ function App() {
           <Route path="/Sign" element={<Sign />} />
           <Route path='/Login' element={<Login />} />
           <Route path='/Account' element={<Account />} />
+          <Route path='/Recipe' element={<Recipe />} />
           <Route path='/Admin' element={<Admin />} />
+
         </Routes>
         <Footer />
       </Router>
