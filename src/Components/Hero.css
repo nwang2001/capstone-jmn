@@ -1,0 +1,47 @@
+.hero-wrapper {
+    background: url("https://i.imgur.com/ZYaLKNq.jpeg") center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+  }
+  
+  .hero-content {
+    text-align: center;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.7); 
+    padding: 2rem; 
+    border-radius: 10px; 
+  }
+
+  .hero-content h1 {
+    color: #82B300;
+    text-shadow: 3px 3px 3px white;
+    font-weight: 900;
+    font-size: 2rem;
+  }
+  
+  .slogan {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    font-weight: 500;
+    line-height: 30px;
+  }
+
+  
+  .primary-button, .secondary-button {
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    background: #FFBB00;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.09);
+  }
+  
+  
