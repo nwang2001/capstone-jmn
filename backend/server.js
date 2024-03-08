@@ -59,7 +59,6 @@ app.get('/vegetarian', (req, res) => {
     const options = {
         method: "GET",
             headers: {  
-                // Authorization: process.env.APIKEY,  
                 "Content-Type": 'application/json'
                  },
     }
@@ -68,12 +67,12 @@ app.get('/vegetarian', (req, res) => {
         .then(res => res.json())
         .then((recipes) => {
             const data = recipes.recipes.map(item => ({
+                id: item.id,
                 title: item.title,
                 image: item.image,
                 summary: item.summary,
                 instructions: item.instructions
             }))
-            // res.send(recipes.recipes[0].title)
             res.send(data);
         })
 
@@ -84,7 +83,6 @@ app.get('/popular', (req, res) => {
     const options = {
         method: "GET",
             headers: {  
-                // Authorization: process.env.APIKEY, 
                 "Content-Type": 'application/json'
                  },
     }
@@ -93,16 +91,82 @@ app.get('/popular', (req, res) => {
         .then(res => res.json())
         .then((recipes) => {
             const data = recipes.recipes.map(item => ({
+                id: item.id,
                 title: item.title,
                 image: item.image,
                 summary: item.summary,
                 instructions: item.instructions
             }))
-            // res.send(recipes.recipes[0].title)
             res.send(data);
         })
 
 })
+
+// app.get('/searched/:name', (req, res) => {
+//     console.log('hello');
+//     const queryParams = {
+//         name: 'lemon',
+//       };
+//     // const name = req.params.key;
+//     const url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=' + `${API_KEY}` + `&query=${queryParams}`;
+//     const options = {
+//         method: "GET",
+//             headers: {  
+//                 "Content-Type": 'application/json'
+//                  },
+//     }
+
+//     return fetch (url, options)
+//     .then(res => res.json())
+//     .then((recipes) => {
+//         const data = recipes.recipes.map(item => ({
+//             title: item.title,
+//             image: item.image,
+//             summary: item.summary,
+//             instructions: item.instructions,
+//             ingredients: item.original
+//         }))
+//         res.send(data);
+//     })
+
+// });
+
+app.get('/recipe/:id', async (req, res) => {
+    try {
+      const id = req.params.id;
+      const url = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`;
+      const options = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+  
+      const response = await fetch(url, options);
+  
+      if (!response.ok) {
+        throw new Error('Error fetching recipe details');
+      }
+  
+      const recipeDetails = await response.json();
+  
+      const data = {
+        id: recipeDetails.id,
+        title: recipeDetails.title,
+        image: recipeDetails.image,
+        summary: recipeDetails.summary,
+        instructions: recipeDetails.instructions,
+        ingredients: recipeDetails.extendedIngredients,
+      };
+  
+      res.json(data);
+    } catch (error) {
+      console.error('Error in fetching recipe details:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+  
+  
 
 app.get('/users', (req, res) => {
     const sql = "SELECT * FROM users";
