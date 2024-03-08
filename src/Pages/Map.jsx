@@ -76,6 +76,10 @@ const MapWidget = () => {
                 infowindow.open(map, marker);
               });
 
+              marker.addListener('dblclick', () => {
+                infowindow.close();
+              });
+
               return marker;
             });
             setMarkers(newMarkers);
