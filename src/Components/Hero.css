@@ -45,3 +45,31 @@
   }
   
   
+
+  @media screen and (max-width: 768px) {
+    .hero-content {
+      width: 70%;
+    }
+  
+    .hero-content h1 {
+      font-size: 1.8rem;
+    }
+  
+    .slogan {
+      font-size: 1rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .hero-content {
+      width: 90%;
+    }
+  
+    .hero-content h1 {
+      font-size: 1.5rem;
+    }
+  
+    .slogan {
+      font-size: 0.9rem;
+    }
+  }

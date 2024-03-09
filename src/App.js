@@ -25,7 +25,7 @@ function App() {
           <Route path='/Account' element={<Account />} />
           <Route path='/Recipe' element={<Recipe />} />
           <Route path='/Admin' element={<Admin />} />
-          <Route path='/searched' element={<Searched />} />
+          <Route path='/searched/:name' element={<Searched />} />
           <Route path="/recipe/:id" element={<FullRecipe />} />        </Routes>
         <Footer />
       </Router>

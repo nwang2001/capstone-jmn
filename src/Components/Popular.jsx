@@ -3,12 +3,10 @@ import styled from 'styled-components';
 import {Splide, SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Link } from 'react-router-dom';
-// require('dotenv').config();
 
 function Popular() {
 
     const [popular, setPopular] = useState([]);
-    // const APIKEY = process.env.APIKEY;
 
     useEffect(() => {
         fetch("http://localhost:3500/popular")
@@ -24,7 +22,7 @@ function Popular() {
             <Wrapper>
                 <h3>Popular Picks</h3>
                 <Splide options={{
-                    perPage:3,
+                    perPage: 3,
                     arrows: true,
                     pagination: true,
                     drag: 'free',
@@ -35,7 +33,6 @@ function Popular() {
                         <SplideSlide key={recipe.id}>
                         <Card>
                         <Link to={`/recipe/${recipe.id}`}>                            <p>{recipe.title}</p>
-                            {/* <p>{recipe.id}</p> */}
                             <img src={recipe.image} alt={recipe.title} />
                             <Gradient />
                             </Link>
