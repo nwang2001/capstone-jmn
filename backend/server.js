@@ -102,34 +102,73 @@ app.get('/popular', (req, res) => {
 
 })
 
-// app.get('/searched/:name', (req, res) => {
-//     console.log('hello');
-//     const queryParams = {
-//         name: 'lemon',
+app.get('/searched/:ingredients', async (req, res) => {
+    try {
+      const ingredients = req.params.ingredients;
+      const url = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}&ingredients=${ingredients}&number=9`;
+      const options = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+  
+      const response = await fetch(url, options);
+  
+      if (!response.ok) {
+        throw new Error(`Error fetching recipe details: ${response.statusText}`);
+      }
+  
+      const byIngredients = await response.json();
+  
+      // Map the array of recipes to a simpler format
+      const data = byIngredients.map((recipe) => ({
+        id: recipe.id,
+        title: recipe.title,
+        image: recipe.image,
+      }));
+  
+      res.json(data);
+    } catch (error) {
+      console.error('Error in fetching recipe details:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+  
+
+// app.get('/searched/:name', async (req, res) => {
+//     try {
+//       const name = req.params.name;
+//       const url = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}&ingredients=${name}&number=9`;
+//       const options = {
+//         method: 'GET',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
 //       };
-//     // const name = req.params.key;
-//     const url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=' + `${API_KEY}` + `&query=${queryParams}`;
-//     const options = {
-//         method: "GET",
-//             headers: {  
-//                 "Content-Type": 'application/json'
-//                  },
+  
+//       const response = await fetch(url, options);
+  
+//       if (!response.ok) {
+//         throw new Error(`Error fetching recipe details: ${response.statusText}`);
+//       }
+  
+//       const byIngredients = await response.json();
+  
+//       // Map the array of recipes to a simpler format
+//       const data = byIngredients.map((recipe) => ({
+//         id: recipe.id,
+//         title: recipe.title,
+//         image: recipe.image,
+//       }));
+  
+//       res.json(data);
+//     } catch (error) {
+//       console.error('Error in fetching recipe details:', error);
+//       res.status(500).json({ error: 'Internal server error' });
 //     }
-
-//     return fetch (url, options)
-//     .then(res => res.json())
-//     .then((recipes) => {
-//         const data = recipes.recipes.map(item => ({
-//             title: item.title,
-//             image: item.image,
-//             summary: item.summary,
-//             instructions: item.instructions,
-//             ingredients: item.original
-//         }))
-//         res.send(data);
-//     })
-
-// });
+//   });
+  
 
 app.get('/recipe/:id', async (req, res) => {
     try {
