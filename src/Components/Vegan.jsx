@@ -26,7 +26,12 @@ function Vegan() {
                 arrows: true,
                 pagination: true,
                 drag: 'free',
-                gap: '5rem'
+                gap: '5rem',
+                breakpoints: {
+                    1024: {
+                        perPage: 1,
+                    },
+              }
             }}>
             {vegan.map((recipe) => {
                 return (
