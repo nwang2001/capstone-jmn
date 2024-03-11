@@ -30,7 +30,7 @@ class Nav extends Component {
   </div>
               <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Map">Find A Food Bank</Link></li>  
               <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Recipe">Recipes</Link></li>      
-              <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Login">Account</Link></li>     
+              <li><Link style={{textDecoration: 'none', color: '#82B300'}} to="/Account">Account</Link></li>     
 
           </ul>
       <div className="mobile-navbar" onClick={this.handleClick}>
