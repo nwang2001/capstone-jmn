@@ -60,12 +60,14 @@ margin: 13rem auto 5rem;
 
   h1 {
     display: block;
-    margin: 30px 0px;
+    margin: 30px;
     font-size: 3rem;
     font-weight: 800;
     color: #FB7300;
     text-shadow: 3px 3px 3px #82B300;
     width: 80%;
+    text-align: center;
+    align-items: center;
 }
 `;
 

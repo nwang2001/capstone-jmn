@@ -65,7 +65,7 @@ function FullRecipe() {
 
 const DetailWrapper = styled.div`
   margin: 13rem auto 5rem;
-  display: flex;
+  display: block;
   width: 80%;
 
   .active {
@@ -75,17 +75,23 @@ const DetailWrapper = styled.div`
 
   h2 {
     display: block;
-    margin: 30px 0px;
+    margin: 50px auto;
     font-size: 3rem;
     font-weight: 800;
     color: #FB7300;
     text-shadow: 3px 3px 3px #82B300;
-    width: 80%;
+    text-align: center;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
   }
 
   li {
     font-size: 1.2rem;
     line-height: 2.5rem;
+    margin: 0 auto;
   }
 
   ul {
@@ -98,14 +104,13 @@ const Button = styled.button`
   color: #313131;
   background: white;
   border: 2px solid black;
-  margin-right: 2rem;
-  margin-bottom: 1rem;
+  margin: 2rem auto 1rem;
   font-weight: 600;
-`;
+  `;
 
 const Info = styled.div`
-  margin: 0rem 3rem;
-
+  margin: 0rem auto;
+  width: 70%;
 `;
 
 export default FullRecipe;
