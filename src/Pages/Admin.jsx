@@ -5,33 +5,15 @@ import '../Components/admin.css';
 
 export default function Admin() {
     const [users, setUsers] = useState([]);
-    // const [isAdmin, setIsAdmin] = useState(false);
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     axios.get('http://localhost:3500/admin/check')
-    //         .then(res => {
-    //             if (res.data.isAdmin) {
-    //                 setIsAdmin(true);
-    //             } else {
-    //                 navigate('/Login');
-    //             }
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //             navigate('/Login');
-    //         });
-    // }, [navigate]);
-
     useEffect(() => {
-        // if (isAdmin) {
             axios.get('http://localhost:3500/users')
                 .then(res => {
                     setUsers(res.data);
                 })
                 .catch(err => console.log(err));
         }
-    // }, [isAdmin])
     );
 
     const deleteUser = (userID) => {

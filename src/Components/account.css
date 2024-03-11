@@ -1,12 +1,15 @@
 .account {
-    margin-top: 160px;
-    max-width: 1500px;
+    max-width: 95vw;
     margin: 180px auto;
+    padding: 20px;
+    background-color: #fbffee;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.account .sign-out-btn {
+.account .sign-out-btn, .account .edit {
     font-family: inherit;
-    background-color: #FB7300;
+    background-color: #82B300;
     border: none;
     color: white;
     padding: 20px 28px;
@@ -15,12 +18,45 @@
     display: inline-block;
     font-size: 18px;
     cursor: pointer;
+    margin: 10px 10px 10px 0;
 }
 
-.account .sign-out-btn:hover {
-    background-color: #d46408;
+.account h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #FB7300;
 }
 
-.account .sign-out-btn {
+.account h2 {
+    font-size: 2em;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #003C40;
+}
+
+.account table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2em;
+    color: #003C40;
+}
+
+.account th,
+.account td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #82B300;
+    font-size: 1.2em;
+}
+
+.account th {
+    background-color: #daf29a;
+}
+
+.account .sign-out-btn:hover, .account .edit:hover {
+    background-color: #FFBB00;
+}
+
+.account .sign-out-btn , .account .edit{
     margin-top: 3em;
 }

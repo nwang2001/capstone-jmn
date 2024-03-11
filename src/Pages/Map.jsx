@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import "../Components/mapstyle.css";
 
 const MapWidget = () => {
@@ -32,7 +33,7 @@ const MapWidget = () => {
   const findFoodBanks = (zipcode) => {
     markers.forEach(marker => marker.setMap(null));
     setMarkers([]);
-    setAddresses([]); // Clear previous addresses
+    setAddresses([]); 
 
     const geocoder = new window.google.maps.Geocoder();
     geocoder.geocode({ 'address': zipcode }, (results, status) => {
@@ -47,12 +48,11 @@ const MapWidget = () => {
           keyword: 'food bank',
         }, (results, status) => {
           if (status === window.google.maps.places.PlacesServiceStatus.OK && results) {
-            // Map results to objects with name and address
             const newAddresses = results.map(place => ({
               name: place.name,
               address: place.vicinity,
             }));
-            setAddresses(newAddresses); // Update the addresses state
+            setAddresses(newAddresses); 
 
             const newMarkers = results.map((place) => {
               const marker = new window.google.maps.Marker({
@@ -70,14 +70,9 @@ const MapWidget = () => {
                   </div>
                 `,
               });
-              
 
               marker.addListener('click', () => {
                 infowindow.open(map, marker);
-              });
-
-              marker.addListener('dblclick', () => {
-                infowindow.close();
               });
 
               return marker;
@@ -98,6 +93,17 @@ const MapWidget = () => {
     markers.forEach(marker => marker.setMap(currentMap));
   };
 
+  const saveAddress = (address) => {
+    axios.post('http://localhost:3500/users/saveAddress', {
+      userId: localStorage.getItem('userId'), 
+      address: address,
+    })
+      .then(response => {
+        console.log(response.data.message);
+      })
+      .catch(error => console.error('Error saving address:', error));
+  };
+
   return (
     <>
       <div className="container">
@@ -115,24 +121,23 @@ const MapWidget = () => {
       <div className="map-container">
         <div id="map" className="map"></div>
         <div className="addresses">
-  <h1>Locations Near You:</h1>
-  <ul className="address-list">
-    {addresses.map((place, index) => (
-      <li key={index} className="address-item">
-        - <strong>{place.name}</strong>: <br></br> {place.address}
-        <br></br>
-        <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.name)}`} target="_blank" rel="noopener noreferrer">
-          Google Map Directions
-        </a>
-      </li>
-    ))}
-  </ul>
-</div>
-
+          <h1>Locations Near You:</h1>
+          <ul className="address-list">
+            {addresses.map((place, index) => (
+              <li key={index} className="address-item">
+                - <strong>{place.name}</strong>: <br></br> {place.address}
+                <br></br>
+                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.name)}`} target="_blank" rel="noopener noreferrer">
+                  Google Map Directions
+                </a>
+                <button className="save-address-btn" onClick={() => saveAddress(place.address)}>Save Address</button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );
-
 };
 
 export default MapWidget;

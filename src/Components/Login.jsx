@@ -16,8 +16,11 @@ export default function Login() {
                 console.log(res);
                 if (res.data.message === "Login Successful") {
                     if (res.data.isAdmin) {
+                        console.log('User is an admin.')
                         navigate('/Admin');
                     } else {
+                        console.log('User is not an admin.')
+                        localStorage.setItem('userId', res.data.data[0].userID);
                         navigate('/Account');
                     }
                 }
@@ -30,9 +33,9 @@ export default function Login() {
             <img src={LoginImg} alt="login" />
             <div className="form">
                 <form className="login-form" onSubmit={handleSubmit}>
-                    <input type="email" placeholder="email" onChange={e => setEmail(e.target.value)} />
-                    <input type="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
-                    <button>login</button>
+                    <input type="email" placeholder="email" value={email} onChange={e => setEmail(e.target.value)} />
+                    <input type="password" placeholder="password" value={password} onChange={e => setPassword(e.target.value)} />
+                    <button type="submit">login</button>
                     <p className="message">
                         Not registered? <a href="Sign">Create Account</a>
                     </p>

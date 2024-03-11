@@ -38,7 +38,7 @@
 
 .admin .delete-btn, .admin .sign-out-btn {
     font-family: inherit;
-    background-color: #FB7300;
+    background-color: #82B300;
     border: none;
     color: white;
     padding: 20px 28px;
@@ -50,7 +50,7 @@
 }
 
 .admin .delete-btn:hover, .admin .sign-out-btn:hover {
-    background-color: #d46408;
+    background-color: #FFBB00;
 }
 
 .admin .sign-out-btn {

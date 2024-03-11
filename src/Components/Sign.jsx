@@ -1,9 +1,12 @@
 import React from 'react';
 import './Sign.css';
+import { useNavigate } from 'react-router-dom';
+
 import SignImg from './Assets/signup.jpeg'
 
 
 export default function Sign() {
+    const navigate = useNavigate();
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -36,11 +39,11 @@ export default function Sign() {
                         localStorage.clear()
                         localStorage.setItem('ID', data.user.userID)
                         localStorage.setItem('username', data.user.firstName)
-                        window.location.href = '/Account'
+                        navigate('/Account');
                     }
                 })
         } else {
-            console.log('failed')
+            console.log('Registering failed.')
         }
     }
 
