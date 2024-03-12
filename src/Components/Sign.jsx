@@ -18,7 +18,7 @@ export default function Sign() {
         const email = document.getElementById('email').value;
 
         if (password === passwordC) {
-            fetch('http://localhost:3500/register', {
+            fetch('https://capstone-bknd.onrender.com/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

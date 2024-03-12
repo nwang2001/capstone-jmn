@@ -8,7 +8,7 @@ export default function Admin() {
     const navigate = useNavigate();
 
     useEffect(() => {
-            axios.get('http://localhost:3500/users')
+            axios.get('https://capstone-bknd.onrender.com/users')
                 .then(res => {
                     setUsers(res.data);
                 })
@@ -19,7 +19,7 @@ export default function Admin() {
     const deleteUser = (userID) => {
         if (window.confirm('Are you sure you want to delete this user?')) {
             axios
-                .delete(`http://localhost:3500/users/${userID}`)
+                .delete(`https://capstone-bknd.onrender.com/users/${userID}`)
                 .then(res => {
                     console.log(res);
                     setUsers(users.filter(user => user.userID !== userID));

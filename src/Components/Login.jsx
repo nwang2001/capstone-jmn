@@ -11,7 +11,7 @@ export default function Login() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        axios.post('http://localhost:3500/Login', { email, password })
+        axios.post('https://capstone-bknd.onrender.com/Login', { email, password })
             .then(res => {
                 console.log(res);
                 if (res.data.message === "Login Successful") {
