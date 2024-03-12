@@ -43,7 +43,7 @@ export default function Admin() {
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
-                        <th>Action</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,6 +53,7 @@ export default function Admin() {
                             <td>{user.lastName}</td>
                             <td>{user.email}</td>
                             <td>
+                                    <button className='edit'>Edit</button>
                                 {user.admin === 0 && (
                                     <button className="delete-btn" onClick={() => deleteUser(user.userID)}>Delete</button>
                                 )}
