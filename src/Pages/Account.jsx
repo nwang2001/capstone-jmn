@@ -23,19 +23,19 @@ export default function Account() {
 
     const fetchUserData = (userId) => {
 
-        axios.post(`http://localhost:3500/users/firstname`, { userId })
+        axios.post(`https://capstone-bknd.onrender.com/users/firstname`, { userId })
             .then(response => setUserData(response.data.firstName))
             .catch(error => console.error('Error fetching user data:', error));
     };
 
     const fetchAddresses = (userId) => {
-        axios.get(`http://localhost:3500/users/getAddresses?userId=${userId}`)
+        axios.get(`https://capstone-bknd.onrender.com/users/getAddresses?userId=${userId}`)
             .then(response => setAddresses(response.data))
             .catch(error => console.error('Error fetching addresses:', error));
     };
 
     const handleDeleteAddress = (addressId) => {
-        axios.delete(`http://localhost:3500/users/deleteAddress/${addressId}`)
+        axios.delete(`https://capstone-bknd.onrender.com/users/deleteAddress/${addressId}`)
             .then(response => {
                 // Remove the deleted address from the state
                 setAddresses(addresses.filter(address => address.id !== addressId));
