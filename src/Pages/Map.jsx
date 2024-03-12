@@ -94,7 +94,7 @@ const MapWidget = () => {
   };
 
   const saveAddress = (address) => {
-    axios.post('http://localhost:3500/users/saveAddress', {
+    axios.post('https://capstone-bknd.onrender.com/users/saveAddress', {
       userId: localStorage.getItem('userId'), 
       address: address,
     })
