@@ -9,7 +9,7 @@ function Popular() {
     const [popular, setPopular] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3500/popular")
+        fetch("https://capstone-bknd.onrender.com/popular")
           .then((res) => res.json())
           .then((data) => {
             setPopular(data);

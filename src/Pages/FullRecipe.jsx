@@ -10,7 +10,7 @@ function FullRecipe() {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:3500/recipe/${id}`);
+        const response = await fetch(`https://capstone-bknd.onrender.com/recipe/${id}`);
         if (!response.ok) {
           throw new Error('Error fetching recipe details');
         }

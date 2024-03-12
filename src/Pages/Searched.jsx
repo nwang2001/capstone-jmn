@@ -10,7 +10,7 @@ function Searched() {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:3500/searched/${name}`);
+        const response = await fetch(`https://capstone-bknd.onrender.com/searched/${name}`);
         if (!response.ok) {
           throw new Error(`Error fetching recipe details: ${response.statusText}`);
         }
