@@ -9,7 +9,7 @@ function Vegan() {
     const [vegan, setVegan] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3500/vegetarian")
+        fetch("https://capstone-bknd.onrender.com/vegetarian")
           .then((res) => res.json())
           .then((data) => {
             setVegan(data);
