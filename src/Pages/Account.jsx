@@ -34,6 +34,15 @@ export default function Account() {
             .catch(error => console.error('Error fetching addresses:', error));
     };
 
+    const handleDeleteAddress = (addressId) => {
+        axios.delete(`http://localhost:3500/users/deleteAddress/${addressId}`)
+            .then(response => {
+                // Remove the deleted address from the state
+                setAddresses(addresses.filter(address => address.id !== addressId));
+            })
+            .catch(error => console.error('Error deleting address:', error));
+    };
+
     const handleSignOut = () => {
         localStorage.clear();
         navigate('/Login');
@@ -49,12 +58,16 @@ export default function Account() {
                         <thead>
                             <tr>
                                 <th>Address</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             {addresses.map((address, index) => (
                                 <tr key={index}>
                                     <td>{address.address}</td>
+                                    <td>
+                                        <button className="delete-btn" onClick={() => handleDeleteAddress(address.id)}>Delete</button>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>

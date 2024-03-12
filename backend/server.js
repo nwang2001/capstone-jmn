@@ -245,6 +245,18 @@ app.get('/users/address/:userId', (req, res) => {
     });
 });
 
+app.delete('/users/deleteAddress/:addressId', (req, res) => {
+    const addressId = req.params.addressId;
+    const sql = 'DELETE FROM addresses WHERE id = ?';
+    db.query(sql, [addressId], (error, result) => {
+        if (error) {
+            console.error('Error deleting address:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+        res.json({ message: 'Address deleted successfully' });
+    });
+});
+
 app.listen(3500, () => {
     console.log("Listening on port 3500.");
 })
